@@ -16,4 +16,4 @@ npm run build
 ```
 
 ### Customize configuration
-See [Configuration Reference](127.0.0.1:8080).
+See [Configuration Reference](http://127.0.0.1:8080).
