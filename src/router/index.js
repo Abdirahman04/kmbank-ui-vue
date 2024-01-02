@@ -1,11 +1,13 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import Home from '../views/Home.vue'
-import About from '../views/About.vue'
-import Contact from '../views/Contact.vue'
-import Register from '../views/Register.vue'
-import Login from '../views/Login.vue'
-import Dashboard from '../views/Dashboard.vue'
-import Deposit from '../views/transactions/Deposit.vue'
+import Home from '@/views/Home.vue'
+import About from '@/views/About.vue'
+import Contact from '@/views/Contact.vue'
+import Register from '@/views/Register.vue'
+import Login from '@/views/Login.vue'
+import Dashboard from '@/views/Dashboard.vue'
+import Deposit from '@/views/transactions/Deposit.vue'
+import Withdraw from '@/views/transactions/Withdraw.vue'
+import Transfer from '@/views/transactions/Transfer.vue'
 
 const routes = [
   {
@@ -42,6 +44,16 @@ const routes = [
     path: '/deposit',
     name: 'deposit',
     component: Deposit
+  },
+  {
+    path: '/withdraw',
+    name: 'withdraw',
+    component: Withdraw
+  },
+  {
+    path: '/transfer',
+    name: 'transfer',
+    component: Transfer
   },
 ]
 

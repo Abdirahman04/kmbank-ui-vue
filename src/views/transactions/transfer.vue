@@ -1,8 +1,8 @@
 <template>
-    <div class="withdraw container">
+    <div class="transfer container">
         <div class="row">
             <div class="row">
-                <div class="col"><h4>How much do you want to withdraw?</h4></div>
+                <div class="col"><h4>Would you like to transfer money?</h4></div>
             </div>
         </div>
         <div class="row">
@@ -13,10 +13,14 @@
                         <label for="amount" class="form-label">Enter amount</label>
                     </div>
                     <div class="row form-floating">
+                        <input type="number" id="recipient" class="form-control" placeholder="recipient">
+                        <label for="recipient" class="form-label">Who do you want to transfer to</label>
+                    </div>
+                    <div class="row form-floating">
                         <input type="password" id="pass" class="form-control" placeholder="password">
                         <label for="pass" class="form-label">Enter password</label>
                     </div>
-                    <button id="btn" class="btn btn-info">Withdraw</button>
+                    <button id="btn" class="btn btn-info">Transfer</button>
                 </form>
             </div>
             <div class="row"><div class="col"><h3 id="err"></h3></div></div>
