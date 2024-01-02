@@ -38,7 +38,10 @@ export default {
         loginCheck() {
             let bool;
             login(this.form).then(data => {
-                if (data) this.$router.push({ name: 'dashboard' })
+                if (data) {
+                    localStorage.setItem('accountNumber', this.form.accountNumber);
+                    this.$router.push({ name: 'dashboard' });
+                }
                 else alert('Incorrect credentials')
             });
         },

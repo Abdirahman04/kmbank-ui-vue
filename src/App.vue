@@ -22,7 +22,6 @@ export default {
         { id: 3, path: { name: 'contact' }, title: 'Contact' },
         { id: 4, path: { name: 'register' }, title: 'Register' },
         { id: 5, path: { name: 'login' }, title: 'Login' },
-        { id: 6, path: { name: 'dashboard' }, title: 'Dashboard' },
       ],
     };
   },

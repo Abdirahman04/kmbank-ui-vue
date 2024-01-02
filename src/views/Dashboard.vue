@@ -1,39 +1,64 @@
 <template>
   <div class="dashboard container">
-    <h1>Dashboard</h1>
-    <div
-      class="card bg-dark my-1 col-8"
-      v-for="user in list"
-      :key="user.id"
-      :v-if="!list"
-    >
-      <div class="card-body">
-        <div class="card-title text-warning">
-          <h2>{{ user.firstName }} {{ user.lastName }}</h2>
+    <div class="row">
+        <h1 class="col">Dashboard</h1>
+        <button class="btn btn-danger col-1" @click="logout">Logout</button>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <div class="card-title">
+                <h3>{{ user.firstName }} {{ user.lastName }}</h3>
+            </div>
+            <div class="card-text">
+                <table>
+                    <tr>
+                        <td>Age</td>
+                        <td>{{ user.age }}</td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td>{{ user.email }}</td>
+                    </tr>
+                    <tr>
+                        <td>Balance</td>
+                        <td>{{ user.balance }}</td>
+                    </tr>
+                </table>
+            </div>
         </div>
-        <div class="card-body text-primary">
-          <h4>Age: {{ user.age }}</h4>
-          <h4>Email: {{ user.email }}</h4>
-          <h4 class="text-danger">Amount: {{ user.balance }}</h4>
-        </div>
-      </div>
     </div>
   </div>
 </template>
 
 <script>
-import { getUsers } from "@/utils/apiService.js";
+import { getUserByAccNumber } from "@/utils/apiService.js";
 
 export default {
   data() {
     return {
-      list: null,
+      user: {
+        firstName: '',
+        lastName: '',
+        age: '',
+        email: '',
+        balance: ''
+      },
+      accountNumber: '',
     };
   },
-  async created() {
-    await getUsers().then((data) => {
-      this.list = data;
-    });
+  mounted() {
+    this.accountNumber = localStorage.getItem('accountNumber');
+    this.getUserInfo(this.accountNumber);
+    console.log('hello');
+  },
+  methods: {
+    getUserInfo(acc) {
+        getUserByAccNumber(acc).then(data => this.user = data);
+    },
+    logout() {
+        localStorage.clear();
+        this.$router.push({ name: 'home' });
+    },
   },
 };
 </script>
