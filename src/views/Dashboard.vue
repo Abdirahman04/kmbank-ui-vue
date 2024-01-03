@@ -26,20 +26,20 @@
                 </table>
             </div>
             <div class="container">
-            <div class="row">
-                <div class="col" v-for="card in cards" :key="card.id">
-                    <div class="card btn btn-outline-primary" @click="redirect(card.id)">
-                        <div class="card-body">
-                            <div class="card-title">
-                                <h3 class="text-warning">{{ card.title }}</h3>
-                            </div>
-                            <div class="card-text">
-                                <p>{{ card.text }}</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+              <div class="row">
+                  <div class="col-4" v-for="card in cards" :key="card.id">
+                      <div class="card btn btn-outline-primary" @click="redirect(card.id)">
+                          <div class="card-body">
+                              <div class="card-title">
+                                  <h3 class="text-warning">{{ card.title }}</h3>
+                              </div>
+                              <div class="card-text">
+                                  <p>{{ card.text }}</p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
             </div>
         </div>
     </div>
@@ -66,6 +66,8 @@ export default {
         {id: 1, title: 'Deposit', text: 'You can deposit any amount from 10 shillings'},
         {id: 2, title: 'Withdraw', text: 'You can withdraw any amount from 10 shillings'},
         {id: 3, title: 'Transfer', text: 'You can transfer amount to a different user'},
+        {id: 4, title: 'Basic transactions', text: 'View your basic transactions'},
+        {id: 5, title: 'Transfer transactions', text: 'view your transfer transactions'},
       ],
     };
   },
@@ -85,7 +87,8 @@ export default {
     redirect(id) {
         if (id === 1) this.$router.push({ name: 'deposit' });
         else if (id === 2) this.$router.push({ name: 'withdraw' });
-        else this.$router.push({ name: 'transfer' });
+        else if (id === 3) this.$router.push({ name: 'transfer' });
+        else this.$router.push({ name: 'basictransactions' });
     },
   },
 };

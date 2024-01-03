@@ -116,23 +116,23 @@ export function send(bdd) {
 export function getBasicTransactions() {
     const url = urlTemplate + 'basicTransaction';
 
-    return fetch(url);
+    return fetch(url).then(res => res.json());
 }
 
 export function getTransferTransactions() {
     const url = urlTemplate + 'transferTransaction';
 
-    return fetch(url);
+    return fetch(url).then(res => res.json());
 }
 
 export function getBasicTransactionById(id) {
     const url = urlTemplate + `basicTransaction/${id}`;
 
-    return fetch(url);
+    return fetch(url).then(res => res.json());
 }
 
 export function getTransferTransactionById(id) {
     const url = urlTemplate + `transferTransaction/${id}`;
 
-    return fetch(url);
+    return fetch(url).then(res => res.json());
 }

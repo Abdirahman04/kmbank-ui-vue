@@ -1,15 +1,17 @@
 <template>
   <div class="home container">
     <h1>Home Page</h1>
-    <div class="card my-2" v-for="user in users" :key="user.id">
-      <div class="card-body">
-        <div class="card-title">
-          <h3 class="text-danger">{{ user.firstName }} {{ user.lastName }}</h3>
-        </div>
-        <div class="card-text">
-          <h4>Age:     {{ user.age }}</h4>
-          <h4>Email:   {{ user.email }}</h4>
-          <h4>Balance: {{  user.balance}}</h4>
+    <div class="row">
+      <div class="card m-3 col-5" v-for="user in users" :key="user.id">
+        <div class="card-body">
+          <div class="card-title">
+            <h3 class="text-danger">{{ user.firstName }} {{ user.lastName }}</h3>
+          </div>
+          <div class="card-text">
+            <h4>Age:     {{ user.age }}</h4>
+            <h4>Email:   {{ user.email }}</h4>
+            <h4>Balance: {{  user.balance}}</h4>
+          </div>
         </div>
       </div>
     </div>
