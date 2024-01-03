@@ -112,3 +112,27 @@ export function send(bdd) {
 
     return fetch(url, options);
 }
+
+export function getBasicTransactions() {
+    const url = urlTemplate + 'basicTransaction';
+
+    return fetch(url);
+}
+
+export function getTransferTransactions() {
+    const url = urlTemplate + 'transferTransaction';
+
+    return fetch(url);
+}
+
+export function getBasicTransactionById(id) {
+    const url = urlTemplate + `basicTransaction/${id}`;
+
+    return fetch(url);
+}
+
+export function getTransferTransactionById(id) {
+    const url = urlTemplate + `transferTransaction/${id}`;
+
+    return fetch(url);
+}
