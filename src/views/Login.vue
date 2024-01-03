@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import { login } from '../utils/apiService.js';
+import { login,getUserByAccNumberRaw } from '../utils/apiService.js';
 
 export default {
     data() {
@@ -40,7 +40,10 @@ export default {
             login(this.form).then(data => {
                 if (data) {
                     localStorage.setItem('accountNumber', this.form.accountNumber);
-                    this.$router.push({ name: 'dashboard' });
+                    getUserByAccNumberRaw(this.form.accountNumber).then(data => {
+                        localStorage.setItem('userData', JSON.stringify(data));
+                        this.$router.push({ name: 'dashboard' });
+                    })
                 }
                 else alert('Incorrect credentials')
             });

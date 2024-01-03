@@ -76,3 +76,39 @@ export function deleteUser(id) {
 
     return fetch(url, options).then(res => res.json());
 }
+
+export function deposit(bdd) {
+    const url = urlTemplate + `deposit`;
+
+    const options = {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: bdd
+    }
+
+    return fetch(url, options).then(res => res.json());
+}
+
+export function withdraw(bdd) {
+    const url = urlTemplate + `withdraw`;
+
+    const options = {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: bdd
+    }
+
+    return fetch(url, options).then(res => res.json());
+}
+
+export function send(bdd) {
+    const url = urlTemplate + `send`;
+
+    const options = {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: bdd
+    }
+
+    return fetch(url, options).then(res => res.json());
+}

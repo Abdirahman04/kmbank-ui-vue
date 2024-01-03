@@ -10,10 +10,10 @@
                 <h3>{{ user.firstName }} {{ user.lastName }}</h3>
             </div>
             <div class="card-text">
-                <table>
+                <table class="table">
                     <tr>
-                        <td>Age</td>
-                        <td>{{ user.age }}</td>
+                        <td>Account Number</td>
+                        <td>{{ user.accountNumber }}</td>
                     </tr>
                     <tr>
                         <td>Email</td>
@@ -24,6 +24,22 @@
                         <td>{{ user.balance }}</td>
                     </tr>
                 </table>
+            </div>
+            <div class="container">
+            <div class="row">
+                <div class="col" v-for="card in cards" :key="card.id">
+                    <div class="card btn btn-outline-primary" @click="redirect(card.id)">
+                        <div class="card-body">
+                            <div class="card-title">
+                                <h3 class="text-warning">{{ card.title }}</h3>
+                            </div>
+                            <div class="card-text">
+                                <p>{{ card.text }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             </div>
         </div>
     </div>
@@ -37,27 +53,39 @@ export default {
   data() {
     return {
       user: {
+        accountNumber: '',
         firstName: '',
         lastName: '',
-        age: '',
+        dob: '',
         email: '',
+        password: '',
         balance: ''
       },
       accountNumber: '',
+      cards: [
+        {id: 1, title: 'Deposit', text: 'You can deposit any amount from 10 shillings'},
+        {id: 2, title: 'Withdraw', text: 'You can withdraw any amount from 10 shillings'},
+        {id: 3, title: 'Transfer', text: 'You can transfer amount to a different user'},
+      ],
     };
   },
   mounted() {
     this.accountNumber = localStorage.getItem('accountNumber');
-    this.getUserInfo(this.accountNumber);
-    console.log('hello');
+    this.getUserInfo();
   },
   methods: {
-    getUserInfo(acc) {
-        getUserByAccNumber(acc).then(data => this.user = data);
+    getUserInfo() {
+        const user = localStorage.getItem('userData');
+        this.user = JSON.parse(user);
     },
     logout() {
         localStorage.clear();
         this.$router.push({ name: 'home' });
+    },
+    redirect(id) {
+        if (id === 1) this.$router.push({ name: 'deposit' });
+        else if (id === 2) this.$router.push({ name: 'withdraw' });
+        else this.$router.push({ name: 'transfer' });
     },
   },
 };

@@ -10,51 +10,15 @@ import Withdraw from '@/views/transactions/Withdraw.vue'
 import Transfer from '@/views/transactions/Transfer.vue'
 
 const routes = [
-  {
-    path: '/',
-    name: 'home',
-    component: Home
-  },
-  {
-    path: '/about',
-    name: 'about',
-    component: About
-  },
-  {
-    path: '/contact',
-    name: 'contact',
-    component: Contact
-  },
-  {
-    path: '/register',
-    name: 'register',
-    component: Register
-  },
-  {
-    path: '/login',
-    name: 'login',
-    component: Login
-  },
-  {
-    path: '/dashboard',
-    name: 'dashboard',
-    component: Dashboard
-  },
-  {
-    path: '/deposit',
-    name: 'deposit',
-    component: Deposit
-  },
-  {
-    path: '/withdraw',
-    name: 'withdraw',
-    component: Withdraw
-  },
-  {
-    path: '/transfer',
-    name: 'transfer',
-    component: Transfer
-  },
+  { path: '/', name: 'home', component: Home },
+  { path: '/about', name: 'about', component: About },
+  { path: '/contact', name: 'contact', component: Contact },
+  { path: '/register', name: 'register', component: Register },
+  { path: '/login', name: 'login', component: Login },
+  { path: '/dashboard', name: 'dashboard', component: Dashboard },
+  { path: '/deposit', name: 'deposit', component: Deposit },
+  { path: '/withdraw', name: 'withdraw', component: Withdraw },
+  { path: '/transfer', name: 'transfer', component: Transfer },
 ]
 
 const router = createRouter({

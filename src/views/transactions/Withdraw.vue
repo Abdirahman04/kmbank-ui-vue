@@ -1,5 +1,6 @@
 <template>
     <div class="withdraw container">
+        <button class="btn btn-danger" @click="back">Back</button>
         <div class="row">
             <div class="row">
                 <div class="col"><h4>How much do you want to withdraw?</h4></div>
@@ -26,6 +27,10 @@
 
 <script>
 export default {
-    
+    methods: {
+        back() {
+            this.$router.push({ name: 'dashboard' })
+        }
+    }
 }
 </script>
