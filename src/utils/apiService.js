@@ -83,10 +83,10 @@ export function deposit(bdd) {
     const options = {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
-        body: bdd
+        body: JSON.stringify(bdd)
     }
 
-    return fetch(url, options).then(res => res.json());
+    return fetch(url, options);
 }
 
 export function withdraw(bdd) {
@@ -95,10 +95,10 @@ export function withdraw(bdd) {
     const options = {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
-        body: bdd
+        body: JSON.stringify(bdd)
     }
 
-    return fetch(url, options).then(res => res.json());
+    return fetch(url, options);
 }
 
 export function send(bdd) {
@@ -107,8 +107,8 @@ export function send(bdd) {
     const options = {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
-        body: bdd
+        body: JSON.stringify(bdd)
     }
 
-    return fetch(url, options).then(res => res.json());
+    return fetch(url, options);
 }
