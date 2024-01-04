@@ -1,5 +1,5 @@
 <template>
-  <div class="dashboard container">
+  <div class="dashboard container" v-if="accountNumber">
     <div class="row">
         <h1 class="col">Dashboard</h1>
         <button class="btn btn-danger col-1" @click="logout">Logout</button>
@@ -44,6 +44,7 @@
         </div>
     </div>
   </div>
+  <h1 class="text-danger" v-else>You need to login first!</h1>
 </template>
 
 <script>
@@ -88,7 +89,8 @@ export default {
         if (id === 1) this.$router.push({ name: 'deposit' });
         else if (id === 2) this.$router.push({ name: 'withdraw' });
         else if (id === 3) this.$router.push({ name: 'transfer' });
-        else this.$router.push({ name: 'basictransactions' });
+        else if (id === 4) this.$router.push({ name: 'basictransactions' });
+        else this.$router.push({ name: 'transfertransactions' });
     },
   },
 };

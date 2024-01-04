@@ -1,12 +1,16 @@
 <template>
-  <nav class="navbar navbar-expand-lg bg-dark text-white">
+  <nav class="navbar navbar-light navbar-expand-sm">
     <div class="container">
-      <h3 class="col-3">KMBANK</h3>
-      <ul class="navbar-nav col-8">
-        <li class="navbar-item mx-2" v-for="route in routes" :key="route.id">
-          <router-link class="btn btn-outline-danger" :to="route.path">{{ route.title }}</router-link>
-        </li>
-      </ul>
+      <span class="navbar-brand h1 text-white" href="#">
+        <img class="d-inline-block align-top" src="../src/assets/logo.png" width="30px" height="30px" />KMBANK
+      </span>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav">
+          <li class="navbar-item mx-2" v-for="route in routes" :key="route.id">
+            <router-link :class="linkActive(route.path.name)" :to="route.path">{{ route.title }}</router-link>
+          </li>
+        </ul>
+      </div>
     </div>
   </nav>
   <router-view/>
@@ -18,12 +22,22 @@ export default {
     return {
       routes: [
         { id: 1, path: { name: 'home' }, title: 'Home' },
-        { id: 2, path: { name: 'about' }, title: 'About' },
-        { id: 3, path: { name: 'contact' }, title: 'Contact' },
-        { id: 4, path: { name: 'register' }, title: 'Register' },
+        { id: 2, path: { name: 'statistics' }, title: 'Statistics' },
+        { id: 4, path: { name: 'register' }, title: 'Signup' },
         { id: 5, path: { name: 'login' }, title: 'Login' },
+        { id: 6, path: { name: 'dashboard' }, title: 'Dashboard' },
       ],
+      linkClasses: 'btn',
+      activeLink: ['btn-outline-light','active'],
     };
+  },
+  methods: {
+    linkActive(name) {
+      if (this.$route.name == name) {
+        return [this.linkClasses, ...this.activeLink];
+      }
+      return [this.linkClasses,'text-light'];
+    },
   },
 }
 </script>
@@ -33,7 +47,11 @@ export default {
     padding: 0;
     margin: 0;
     min-height: 100vh;
-    background: linear-gradient(#fff, #89f);
+    background-image: linear-gradient(
+        to bottom,
+        rgb(255 255 0 / 0%),
+        rgb(0 0 0 / 40%)
+      ), url("../src/assets/hao-wang-pVq6YhmDPtk-unsplash.jpg");
     scrollbar-width: none;
   }
   input {
