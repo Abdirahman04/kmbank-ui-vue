@@ -1,0 +1,15 @@
+#!/usr/bin/expect
+
+set username "Abdirahman04"
+set password "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"
+
+spawn git push
+
+expect "Username for 'https://github.com':"
+send "$username\r"
+
+expect "Password for 'https://Abdirahman04@github.com':"
+send "$password\r"
+
+expect eof
+
