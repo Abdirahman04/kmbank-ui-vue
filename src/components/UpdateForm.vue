@@ -1,7 +1,6 @@
 <template>
-    <div class="register container">
-        <h1>REGISTER</h1>
-        <form id="registerForm" class="border border-3 p-3 m-2 border-primary">
+    <div class="update-form container">
+        <form id="registerForm" class="border border-3 p-3 border-warning">
             <div class="row g-4">
                 <div class="col mb-3 form-floating">
                     <input type="text" id="fname" class="form-control" placeholder="first name" required v-model="form.firstName">
@@ -34,44 +33,20 @@
             </div>
             <button id="btn" class="btn btn-lg btn-info" @click.prevent="register">Register</button>
         </form>
-
-        <h3 id="err"></h3>
     </div>
 </template>
 
 <script>
-import { getUserByAccNumber, getUserByAccNumberRaw, addUser } from '@/utils/apiService.js'
-
 export default {
-    data() {
-        return {
-            form: {
-                accountNumber: '',
-                firstName: '',
-                lastName: '',
-                dob: '',
-                email: '',
-                password: ''
-            }
-        };
-    },
-    methods: {
-        register() {
-            console.log(this.form);
-            addUser(this.form).then(res => {
-                if(res.ok) {
-                    localStorage.setItem('accountNumber', this.form.accountNumber);
-                    getUserByAccNumber(this.form.accountNumber).then(data => {
-                        localStorage.setItem('userData', JSON.stringify(data));
-                        getUserByAccNumberRaw(this.form .accountNumber).then(data2 => {
-                            localStorage.setItem('userDataRaw', JSON.stringify(data2));
-                            this.$router.push({ name: 'dashboard' });
-                        })
-                    })
-                }
-                else console.error(res);
-            })
-        },
-    },
+    
 }
 </script>
+
+<style scoped>
+    .update-form {
+        width: 80%;
+        position: fixed;
+        left: 50px;
+        top: 50px;
+    }
+</style>

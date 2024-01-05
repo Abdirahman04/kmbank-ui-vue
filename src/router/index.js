@@ -9,6 +9,7 @@ import Withdraw from '@/views/transactions/Withdraw.vue'
 import Transfer from '@/views/transactions/Transfer.vue'
 import BasicTransactions from '@/views/transactions/BasicTransactions'
 import TransferTransactions from '@/views/transactions/TransferTransactions'
+import Profile from '@/views/Profile'
 
 const routes = [
   { path: '/', name: 'home', component: Home },
@@ -21,6 +22,7 @@ const routes = [
   { path: '/transfer', name: 'transfer', component: Transfer },
   { path: '/basictransactions', name: 'basictransactions', component: BasicTransactions },
   { path: '/transfertransactions', name: 'transfertransactions', component: TransferTransactions },
+  { path: '/profile', name: 'profile', component: Profile },
 ]
 
 const router = createRouter({

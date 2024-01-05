@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import { send,login,getUserByAccNumberRaw } from '@/utils/apiService.js'
+import { send,login,getUserByAccNumberRaw,getUserByAccNumber } from '@/utils/apiService.js'
 
 export default {
     data() {
@@ -66,9 +66,12 @@ export default {
                             if (!res.ok) {
                                 throw new Error(`HTTP error! Status: ${res.status}`);
                             }
-                            getUserByAccNumberRaw(this.form.accountNumber).then(data => {
+                            getUserByAccNumber(this.form.accountNumber).then(data => {
                                 localStorage.setItem('userData', JSON.stringify(data));
-                                this.$router.push({ name: 'dashboard' });
+                                getUserByAccNumberRaw(this.form .accountNumber).then(data2 => {
+                                    localStorage.setItem('userDataRaw', JSON.stringify(data2));
+                                    this.$router.push({ name: 'dashboard' });
+                                })
                             })
                         })
                     }).catch(err => alert(err))

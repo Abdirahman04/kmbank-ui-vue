@@ -29,6 +29,7 @@ export default {
       ],
       linkClasses: 'btn',
       activeLink: ['btn-outline-light','active'],
+      inactiveLink: 'text-light',
     };
   },
   methods: {
@@ -36,7 +37,7 @@ export default {
       if (this.$route.name == name) {
         return [this.linkClasses, ...this.activeLink];
       }
-      return [this.linkClasses,'text-light'];
+      return [this.linkClasses,this.inactiveLink];
     },
   },
 }

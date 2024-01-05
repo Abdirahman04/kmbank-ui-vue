@@ -2,9 +2,9 @@
   <div class="dashboard container" v-if="accountNumber">
     <div class="row">
         <h1 class="col">Dashboard</h1>
-        <button class="btn btn-danger col-1" @click="logout">Logout</button>
+        <button class="btn btn-danger col-1 m-2" @click="logout">Logout</button>
     </div>
-    <div class="card">
+    <div class="card dashboard-card">
         <div class="card-body">
             <div class="card-title">
                 <h3>{{ user.firstName }} {{ user.lastName }}</h3>
@@ -25,13 +25,14 @@
                     </tr>
                 </table>
             </div>
+            <button class="btn btn-lg btn-warning m-2" @click="profile">Profile</button>
             <div class="container">
               <div class="row">
-                  <div class="col-4" v-for="card in cards" :key="card.id">
-                      <div class="card btn btn-outline-primary" @click="redirect(card.id)">
+                  <div class="col-3" v-for="card in cards" :key="card.id">
+                      <div class="card btn-card btn" @click="redirect(card.id)">
                           <div class="card-body">
                               <div class="card-title">
-                                  <h3 class="text-warning">{{ card.title }}</h3>
+                                  <h4 class="text-danger">{{ card.title }}</h4>
                               </div>
                               <div class="card-text">
                                   <p>{{ card.text }}</p>
@@ -92,6 +93,19 @@ export default {
         else if (id === 4) this.$router.push({ name: 'basictransactions' });
         else this.$router.push({ name: 'transfertransactions' });
     },
+    profile() {
+        this.$router.push({ name: 'profile' });
+    },
   },
 };
 </script>
+
+<style scoped>
+  .dashboard-card {
+    background: linear-gradient(to bottom right, #f44, #555);
+    color: white;
+  }
+  .btn-card {
+    background: linear-gradient(#aaa,#bbb,#ccc,#ddd);
+  }
+</style>
