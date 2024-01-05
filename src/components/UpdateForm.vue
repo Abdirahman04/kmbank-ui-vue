@@ -1,6 +1,7 @@
 <template>
-    <div class="update-form container">
-        <form id="registerForm" class="border border-3 p-3 border-warning">
+    <div v-if="isVisible" class="update-form container bg-dark p-3">
+        <button class="btn btn-danger" @click="remove">X</button>
+        <form id="registerForm" class="border border-3 p-1 border-warning">
             <div class="row g-4">
                 <div class="col mb-3 form-floating">
                     <input type="text" id="fname" class="form-control" placeholder="first name" required v-model="form.firstName">
@@ -27,26 +28,56 @@
                 <input type="password" id="pass" class="form-control" placeholder="password" required v-model="form.password">
                 <label for="pass" class="form-label">Password</label>
             </div>
-            <div class="mb-3 form-floating">
-                <input type="password" id="cpass" class="form-control" placeholder="confirm password" required>
-                <label for="cpass" class="form-label">Confirm password</label>
-            </div>
-            <button id="btn" class="btn btn-lg btn-info" @click.prevent="register">Register</button>
+            <button id="btn" class="btn btn-lg btn-info" @click.prevent="edit">Edit</button>
         </form>
     </div>
 </template>
 
 <script>
 export default {
-    
+    props: {
+        formDefaultData: {
+            type: Array,
+            required: true
+        },
+        isVisible: {
+            type: Boolean,
+            default: false
+        }
+    },
+    data() {
+        return {
+            form: {
+                firstName: this.formDefaultData[0],
+                lastName: this.formDefaultData[1],
+                dob: this.formDefaultData[2],
+                email: this.formDefaultData[3],
+                accountNumber: this.formDefaultData[4],
+                password: this.formDefaultData[5]
+            }
+        };
+    },
+    methods: {
+        edit() {
+            this.$emit('form-submit',this.form);
+        },
+        remove() {
+            this.$emit('remove');
+        },
+    },
 }
 </script>
 
 <style scoped>
     .update-form {
-        width: 80%;
+        width: 70%;
         position: fixed;
-        left: 50px;
+        left: 150px;
         top: 50px;
+        border-radius: 2%;
+        box-shadow: 0 0 200px rgba(0,0,0,0.9);
+    }
+    .disp {
+        display: none;
     }
 </style>

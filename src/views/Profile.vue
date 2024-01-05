@@ -14,16 +14,37 @@
                     <h3 class="text-danger">Balance:          {{ user.balance }}</h3>
                 </div>
                 <div class="row">
-                    <button class="btn btn-outline-info col-3">Edit</button>
-                    <button class="btn btn-outline-danger col-3">Delete</button>
+                    <button class="btn btn-outline-info col-3" @click="updateBtn">Edit</button>
+                    <button class="btn btn-outline-danger col-3" @click="deleteUser">Delete</button>
                 </div>
             </div>
         </div>
+        <update-form :formDefaultData="dataArray" :isVisible="isEdit" @form-submit="edit" @remove="updateBtn"></update-form>
     </div>
 </template>
 
 <script>
+import UpdateForm from '@/components/UpdateForm'
+import { updateUser, getUserByAccNumber, getUserByAccNumberRaw, deleteUser } from '@/utils/apiService.js'
+
 export default {
+    components: {
+        'update-form': UpdateForm,
+    },
+    computed: {
+        dataArray() {
+            const userRaw = JSON.parse(localStorage.getItem('userDataRaw'));
+            console.log(userRaw);
+            return [
+                userRaw.firstName,
+                userRaw.lastName,
+                new Date(userRaw.dob).toLocaleDateString('en-CA'),
+                userRaw.email,
+                userRaw.accountNumber,
+                userRaw.password
+            ];
+        },
+    },
     data() {
         return {
             user: {
@@ -36,7 +57,8 @@ export default {
                 email: '',
                 pass: '',
                 amount: ''
-            }
+            },
+            isEdit: false,
         };
     },
     mounted() {
@@ -61,6 +83,35 @@ export default {
         },
         back() {
             this.$router.push({ name: 'dashboard' });
+        },
+        edit(formData) {
+            console.log(formData);
+            updateUser(this.user.id, formData).then(res => {
+                if(res.ok) {
+                    localStorage.setItem('accountNumber', formData.accountNumber);
+                    getUserByAccNumber(formData.accountNumber).then(data => {
+                        localStorage.setItem('userData', JSON.stringify(data));
+                        getUserByAccNumberRaw(formData.accountNumber).then(data2 => {
+                            localStorage.setItem('userDataRaw', JSON.stringify(data2));
+                            this.$router.go(0);
+                        })
+                    })
+                }
+            })
+        },
+        updateBtn() {
+            this.isEdit = !this.isEdit;
+        },
+        deleteUser() {
+            let bool = confirm("Are you sure you want to delete your account?");
+            if(bool) {
+                deleteUser(this.user.id).then(res => {
+                    if(res.ok) {
+                        localStorage.clear();
+                        this.$router.push({ name: 'home' });
+                    }
+                })
+            }
         },
     },
 }

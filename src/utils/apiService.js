@@ -63,7 +63,7 @@ export function updateUser(id, bdd) {
         body: JSON.stringify(bdd)
     }
 
-    return fetch(url, options).then(res => res.json());
+    return fetch(url, options);
 }
 
 export function deleteUser(id) {
@@ -74,7 +74,7 @@ export function deleteUser(id) {
         headers: {'Content-Type': 'application/json'},
     }
 
-    return fetch(url, options).then(res => res.json());
+    return fetch(url, options);
 }
 
 export function deposit(bdd) {
