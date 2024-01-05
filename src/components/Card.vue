@@ -1,8 +1,8 @@
 <template>
     <div class="card">
         <div class="card-body">
-            <div class="card-title"><h3>{{ title }}</h3></div>
-            <div class="card-text"><p>{{ text }}</p></div>
+            <div class="card-title"><h3>{{ ctitle }}</h3></div>
+            <div class="card-text"><p class="h5">==&gt; <span class="text-danger">{{ ctext }}</span></p></div>
         </div>
     </div>
 </template>
@@ -10,11 +10,11 @@
 <script>
 export default {
     props: {
-        title: {
+        ctitle: {
             type: String,
             required: true
         },
-        text: {
+        ctext: {
             type: String,
             required: true
         }

@@ -6,12 +6,12 @@
             <div class="card-body">
                 <div class="card-title"><h2>{{ user.id }}</h2></div>
                 <div class="card-text">
-                    <h3>Name:             {{ user.fname }} {{ user.lname }}</h3>
-                    <h3>Account number:   {{ user.accNumber }}</h3>
-                    <h3>Age:              {{ user.age }}</h3>
-                    <h3>Email address:    {{ user.email }}</h3>
-                    <h3>Password:         **********</h3>
-                    <h3 class="text-danger">Balance:          {{ user.balance }}</h3>
+                    <h3>Name: {{ user.fname }} {{ user.lname }}</h3>
+                    <h3>Account number: {{ user.accNumber }}</h3>
+                    <h3>Age: {{ user.age }}</h3>
+                    <h3>Email address: {{ user.email }}</h3>
+                    <h3>Password: **********</h3>
+                    <h3 class="text-danger">Balance: {{ user.amount }}</h3>
                 </div>
                 <div class="row">
                     <button class="btn btn-outline-info col-3" @click="updateBtn">Edit</button>

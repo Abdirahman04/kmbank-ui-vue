@@ -12,33 +12,24 @@
             <div class="card-text">
                 <table class="table">
                     <tr>
-                        <td>Account Number</td>
-                        <td>{{ user.accountNumber }}</td>
+                        <td class="h4 tag">Account Number</td>
+                        <td class="h5 taglet">{{ user.accountNumber }}</td>
                     </tr>
                     <tr>
-                        <td>Email</td>
-                        <td>{{ user.email }}</td>
+                        <td class="h4 tag">Email</td>
+                        <td class="h5 taglet">{{ user.email }}</td>
                     </tr>
                     <tr>
-                        <td>Balance</td>
-                        <td>{{ user.balance }}</td>
+                        <td class="h4 tag">Balance</td>
+                        <td class="h5 taglet">{{ user.balance }}</td>
                     </tr>
                 </table>
             </div>
             <button class="btn btn-lg btn-warning m-2" @click="profile">Profile</button>
             <div class="container">
               <div class="row">
-                  <div class="col-3" v-for="card in cards" :key="card.id">
-                      <div class="card btn-card btn" @click="redirect(card.id)">
-                          <div class="card-body">
-                              <div class="card-title">
-                                  <h4 class="text-danger">{{ card.title }}</h4>
-                              </div>
-                              <div class="card-text">
-                                  <p>{{ card.text }}</p>
-                              </div>
-                          </div>
-                      </div>
+                  <div class="col" v-for="card in cards" :key="card.id">
+                      <button class="btn btn-info" @click="redirect(card.id)">{{ card.title }}</button>
                   </div>
               </div>
             </div>
@@ -65,11 +56,11 @@ export default {
       },
       accountNumber: '',
       cards: [
-        {id: 1, title: 'Deposit', text: 'You can deposit any amount from 10 shillings'},
-        {id: 2, title: 'Withdraw', text: 'You can withdraw any amount from 10 shillings'},
-        {id: 3, title: 'Transfer', text: 'You can transfer amount to a different user'},
-        {id: 4, title: 'Basic transactions', text: 'View your basic transactions'},
-        {id: 5, title: 'Transfer transactions', text: 'view your transfer transactions'},
+        {id: 1, title: 'Deposit'},
+        {id: 2, title: 'Withdraw'},
+        {id: 3, title: 'Transfer'},
+        {id: 4, title: 'Basic transactions'},
+        {id: 5, title: 'Transfer transactions'},
       ],
     };
   },
@@ -107,5 +98,11 @@ export default {
   }
   .btn-card {
     background: linear-gradient(#aaa,#bbb,#ccc,#ddd);
+  }
+  .tag {
+    font-family: algerian;
+  }
+  .taglet {
+    font-family: calibri;
   }
 </style>
