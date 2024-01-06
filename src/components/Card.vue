@@ -11,7 +11,7 @@
 export default {
     props: {
         ctitle: {
-            type: String,
+            type: [String, Number],
             required: true
         },
         ctext: {

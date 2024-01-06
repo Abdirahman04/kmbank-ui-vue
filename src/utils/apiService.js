@@ -136,3 +136,9 @@ export function getTransferTransactionById(id) {
 
     return fetch(url).then(res => res.json());
 }
+
+export function getStatistics() {
+    const url = urlTemplate + "statistics";
+
+    return fetch(url).then(res => res.json());
+}
