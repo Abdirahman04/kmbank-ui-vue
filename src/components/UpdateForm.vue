@@ -1,15 +1,15 @@
 <template>
     <div v-if="isVisible" class="update-form container bg-dark p-3">
         <button class="btn btn-danger" @click="remove">X</button>
-        <form id="registerForm" class="border border-3 p-1 border-warning">
+        <form id="registerForm" class="p-1 border-warning">
             <div class="row g-4">
-                <div class="col mb-3 form-floating">
+                <div class="col mb-3 form-floating px-2">
                     <input type="text" id="fname" class="form-control" placeholder="first name" required v-model="form.firstName">
-                    <label for="fname" class="form-label px-4">First name</label>
+                    <label for="fname" class="form-label">First name</label>
                 </div>
-                <div class="col mb-3 form-floating">
+                <div class="col mb-3 form-floating px-2">
                     <input type="text" id="lname" class="form-control" placeholder="last name" required v-model="form.lastName">
-                    <label for="lname" class="form-label px-4">Last name</label>
+                    <label for="lname" class="form-label">Last name</label>
                 </div>
             </div>
             <div class="mb-3 form-floating">
@@ -75,7 +75,7 @@ export default {
         left: 150px;
         top: 50px;
         border-radius: 2%;
-        box-shadow: 0 0 200px rgba(0,0,0,0.9);
+        box-shadow: 0 0 100px 100px rgba(0,0,0,0.7);
     }
     .disp {
         display: none;

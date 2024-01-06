@@ -1,7 +1,7 @@
 #!/usr/bin/expect
 
 set username "Abdirahman04"
-set password "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"
+set password "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"
 
 spawn git push
 
