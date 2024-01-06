@@ -2,7 +2,7 @@
     <div class="login container">
         <div class="row">
             <div>
-                <h1>LOGIN</h1>
+                <h1 class="sunflower">LOGIN</h1>
             </div>
         </div>
         <div class="row my-5">

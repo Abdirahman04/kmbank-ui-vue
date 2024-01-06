@@ -1,6 +1,6 @@
 <template>
     <div class="register container">
-        <h1>REGISTER</h1>
+        <h1 class="sunflower">REGISTER</h1>
         <form id="registerForm" class="border border-3 p-3 m-2 border-primary">
             <div class="row g-4">
                 <div class="col mb-3 form-floating">

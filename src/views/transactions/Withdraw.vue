@@ -3,7 +3,7 @@
         <button class="btn btn-danger" @click="back">Back</button>
         <div class="row">
             <div class="row">
-                <div class="col"><h4>How much do you want to withdraw?</h4></div>
+                <div class="col lavender"><h4>How much do you want to withdraw?</h4></div>
             </div>
         </div>
         <div class="row">

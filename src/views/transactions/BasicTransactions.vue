@@ -1,6 +1,6 @@
 <template>
     <div class="basic-transactions container">
-        <h1>Basic Transactions</h1>
+        <h1 class="lavender">Basic Transactions</h1>
         <button class="btn btn-danger" @click="back">Back</button>
         <div class="row">
             <div class="card col-4 bg-dark text-info" v-for="transaction in list" :key="transaction.id">

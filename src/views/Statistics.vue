@@ -1,6 +1,6 @@
 <template>
   <div class="statistics container">
-    <h1>Statistics Page</h1>
+    <h1 class="sunflower">Statistics Page</h1>
     <div class="container">
       <div class="row">
         <div class="col-8">
@@ -15,7 +15,7 @@
           <div class="row">
             <div class="col"><button class="btn btn-outline-danger" @click="goToUsers">Users</button></div>
             <div class="col"><button class="btn btn-outline-info" @click="goToBasicTransactions">B.Transactions</button></div>
-            <div class="col"><button class="btn btn-outline-warning">T.Transactions</button></div>
+            <div class="col"><button class="btn btn-outline-warning" @click="goToTransferTransactions">T.Transactions</button></div>
           </div>
           <div class="row">
             <div class="col">
@@ -73,6 +73,9 @@ export default {
     },
     goToBasicTransactions() {
       this.$router.push({ name: 'basictransactionsdata' });
+    },
+    goToTransferTransactions() {
+      this.$router.push({ name: 'transfertransactionsdata' });
     },
   },
   mounted() {

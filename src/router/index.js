@@ -12,6 +12,7 @@ import TransferTransactions from "@/views/transactions/TransferTransactions";
 import Profile from "@/views/Profile";
 import UsersData from "@/views/UsersData";
 import BasicTransactionsData from '@/views/BasicTransactionsData'
+import TransferTransactionsData from '@/views/TransferTransactionsData'
 
 const routes = [
   { path: "/", name: "home", component: Home },
@@ -35,6 +36,7 @@ const routes = [
   { path: "/profile", name: "profile", component: Profile },
   { path: "/usersdata", name: "usersdata", component: UsersData },
   { path: "/basictransactionsdata", name: "basictransactionsdata", component: BasicTransactionsData },
+  { path: "/transfertransactionsdata", name: "transfertransactionsdata", component: TransferTransactionsData },
 ];
 
 const router = createRouter({

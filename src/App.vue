@@ -74,4 +74,16 @@ export default {
     background-color: #f8f9fa; /* Bootstrap's light color */
     border-radius: 10px;
   }
+  .silver {
+    color: #c0c0c0;
+  }
+  .sunflower {
+    color: #f6bb42;
+  }
+  .mint {
+    color: #48cfad;
+  }
+  .lavender {
+    color: #ac92ec;
+  }
 </style>

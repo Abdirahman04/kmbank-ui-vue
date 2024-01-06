@@ -1,7 +1,7 @@
 <template>
     <div class="profile container">
     <button class="btn btn-danger" @click="back">Back</button>
-        <h1>Profile</h1>
+        <h1 class="sunflower">Profile</h1>
         <div class="card">
             <div class="card-body">
                 <div class="card-title"><h2>{{ user.id }}</h2></div>

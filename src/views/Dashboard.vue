@@ -1,7 +1,7 @@
 <template>
   <div class="dashboard container" v-if="accountNumber">
     <div class="row">
-        <h1 class="col">Dashboard</h1>
+        <h1 class="col mint">Dashboard</h1>
         <button class="btn btn-danger col-1 m-2" @click="logout">Logout</button>
     </div>
     <div class="card dashboard-card">
