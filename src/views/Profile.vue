@@ -2,7 +2,7 @@
     <div class="profile container">
     <button class="btn btn-danger" @click="back">Back</button>
         <h1 class="sunflower">Profile</h1>
-        <div class="card">
+        <div class="card border-primary border-2 p-card">
             <div class="card-body">
                 <div class="card-title"><h2>{{ user.id }}</h2></div>
                 <div class="card-text">
@@ -11,11 +11,11 @@
                     <h3>Age: {{ user.age }}</h3>
                     <h3>Email address: {{ user.email }}</h3>
                     <h3>Password: **********</h3>
-                    <h3 class="text-danger">Balance: {{ user.amount }}</h3>
+                    <h3 class="mint">Balance: {{ user.amount }}</h3>
                 </div>
                 <div class="row">
                     <button class="btn btn-outline-info col-3" @click="updateBtn">Edit</button>
-                    <button class="btn btn-outline-danger col-3" @click="deleteUser">Delete</button>
+                    <button class="btn btn-outline-warning col-3" @click="deleteUser">Delete</button>
                 </div>
             </div>
         </div>
@@ -116,3 +116,9 @@ export default {
     },
 }
 </script>
+
+<style scoped>
+    .p-card {
+        background: linear-gradient(to bottom right, #dfb6b2, #2b124c);
+    }
+</style>

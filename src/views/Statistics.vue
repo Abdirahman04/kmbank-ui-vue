@@ -1,6 +1,6 @@
 <template>
   <div class="statistics container">
-    <h1 class="sunflower">Statistics Page</h1>
+    <h2 class="sunflower">Statistics Page</h2>
     <div class="container">
       <div class="row">
         <div class="col-8">
@@ -12,16 +12,10 @@
               <card ctitle="Total Money" :ctext="statistics.amount"></card>
             </div>
           </div>
-          <div class="row">
-            <div class="col"><button class="btn btn-outline-danger" @click="goToUsers">Users</button></div>
-            <div class="col"><button class="btn btn-outline-info" @click="goToBasicTransactions">B.Transactions</button></div>
-            <div class="col"><button class="btn btn-outline-warning" @click="goToTransferTransactions">T.Transactions</button></div>
-          </div>
-          <div class="row">
-            <div class="col">
-              <p>dsajlfkdkfjdlkfjldksjfldkajflkjdajfkdajflkdjfdkjflkdjfkldf</p>
-              <p>djfjdkljfldkjflksdjfklsdjflkdjflkdjaflkjdlfjldkajfldjfljda</p>
-            </div>
+          <div class="row my-5 p-5">
+            <div class="col"><button class="btn btn-lg btn-outline-danger" @click="goToUsers">Users</button></div>
+            <div class="col"><button class="btn btn-lg btn-outline-info" @click="goToBasicTransactions">B.Transactions</button></div>
+            <div class="col"><button class="btn btn-lg btn-outline-warning" @click="goToTransferTransactions">T.Transactions</button></div>
           </div>
         </div>
         <div class="col-4">
