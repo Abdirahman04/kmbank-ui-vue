@@ -14,7 +14,7 @@
           </div>
           <div class="row">
             <div class="col"><button class="btn btn-outline-danger" @click="goToUsers">Users</button></div>
-            <div class="col"><button class="btn btn-outline-info">B.Transactions</button></div>
+            <div class="col"><button class="btn btn-outline-info" @click="goToBasicTransactions">B.Transactions</button></div>
             <div class="col"><button class="btn btn-outline-warning">T.Transactions</button></div>
           </div>
           <div class="row">
@@ -69,8 +69,10 @@ export default {
       })
     },
     goToUsers() {
-      console.log('go to users');
       this.$router.push({ name: 'usersdata' });
+    },
+    goToBasicTransactions() {
+      this.$router.push({ name: 'basictransactionsdata' });
     },
   },
   mounted() {
